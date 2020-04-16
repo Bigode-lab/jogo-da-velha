@@ -1,7 +1,7 @@
 #include<stdio.h>
 #define max 3
 int resultado_linha(char v[max][max]){
-	int i=0, x=0;
+	int i=0, x=0, prox = 0;
 	char a;
 	for ( i = 0; i < max; i++){
 		
@@ -13,15 +13,24 @@ int resultado_linha(char v[max][max]){
 
 			for (x = 0; x < max; x++){
 				printf("aqui 1 x: %d\n", x);
+				printf("aqui 1 i: %d\n", i);
 				
-				if (v[i][x+1] != a && v[i][x+1] != ' '){
-					
-					printf("nao e a linha horizontal\n");
-					x = 4;
-					printf("aqui 3 x: %d\n", x);
-				}else if (x == 2 && v[i][x] != ' '){
-					printf("aqui 4 x: %d\n", x);
-					return 1;
+				if(x+1 < max){
+					printf("aqui 2 x: %d\n", x);
+					printf("aqui 2 i: %d\n", i);
+					prox = v[i][x+1]; 
+				
+					if((prox != a) && (prox != ' ')){
+						
+						printf("nao e a linha horizontal\n");
+						x = 4;
+						printf("aqui 3 x: %d\n", x);
+					}else if((x == 2) && (v[i][x] != ' ')){
+						printf("aqui 4 x: %d\n", x);
+						return 1;
+					}else{
+						return 0;
+					}
 				}
 			}
 		}
@@ -37,7 +46,7 @@ int velha(char v[max][max]){
 	for (int j = 0; j < 9; j++){
 
 		if(jogador == 1){
-			ch = 'x';
+			ch = 'X';
 		}else{
 			ch = 'O';
 		}  
