@@ -1,14 +1,16 @@
 #include<stdio.h>
 #define max 3
 //o programa não esta aceitando fim quando se completa uma liha com um unico caracter presente
+//program esta identificando quando nao e a linha correta
 //ou seja nao a vencedores ele continua executando o codigo ate o fim
 int resultado_linha(char v[max][max]){
 	int i=0, x=0, prox = 0;
 	char a;
 	for ( i = 0; i < max; i++){
-		
+
 		a = v[i][0];
 		printf("aqui 0 x: %d\n", x);
+		printf("aqui 0,5 i:%d\n", i);
 		if(a == ' '){
 			return 0;
 		}else{
@@ -17,28 +19,34 @@ int resultado_linha(char v[max][max]){
 				printf("aqui 1 x: %d\n", x);
 				printf("aqui 1 i: %d\n", i);
 				
+				printf("simbolo na coordenada: %c\n", v[i][x]);
 				if(x+1 < max){
 					printf("aqui 2 x: %d\n", x);
 					printf("aqui 2 i: %d\n", i);
 					prox = v[i][x+1]; 
-				
+					printf("prox: int %d\n", prox);
+					printf("prox: char %c\n", prox);
+
 					if((prox != a) && (prox != ' ')){
 						
 						printf("nao e a linha horizontal\n");
 						x = 4;
 						printf("aqui 3 x: %d\n", x);
+//erro ta na condição do else if, esta entrando no if
 					}else if((x == 2) && (v[i][x] != ' ')){
 						printf("aqui 4 x: %d\n", x);
 						return 1;
 					}else{
-						return 0;
+						printf("aqui 5\n");
+// nao pode haver returni aqui pois se nao nao e executado todas as somas do x;
 					}
 				}
 			}
 		}
+	printf("aqui 5 x:%d i:%d\n", x);
 	}
 }
-//função velha esta correta não a erro
+//função velha esta correta, não a erro
 int velha(char v[max][max]){
 	int i, j, x, jogador = 1, controle =0, resultado=0;
 	char ch;
@@ -84,6 +92,7 @@ int velha(char v[max][max]){
 				printf("\n----------\n");
 			}	
 		}
+		printf("x:%d, i:%d\n", x,i);
 		resultado = resultado_linha(v);
 		if (resultado == 1){
 			printf("fim de jogo, vencedor jogador %d\n", jogador);
