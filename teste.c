@@ -1,7 +1,7 @@
 #include<stdio.h>
 #define max 3
 //o programa não esta aceitando fim quando se completa uma liha com um unico caracter presente
-//program esta identificando quando nao e a linha correta
+//program esta identificando quando nao e a linha corre
 //ou seja nao a vencedores ele continua executando o codigo ate o fim
 int resultado_linha(char v[max][max]){
 	int i=0, x=0, prox = 0;
@@ -27,12 +27,13 @@ int resultado_linha(char v[max][max]){
 					printf("prox: int %d\n", prox);
 					printf("prox: char %c\n", prox);
 
+//if esta correto
 					if((prox != a) && (prox != ' ')){
 						
 						printf("nao e a linha horizontal\n");
 						x = 4;
 						printf("aqui 3 x: %d\n", x);
-//erro ta na condição do else if, esta entrando no if
+
 					}else if((x == 2) && (v[i][x] != ' ')){
 						printf("aqui 4 x: %d\n", x);
 						return 1;
