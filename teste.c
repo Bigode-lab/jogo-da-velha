@@ -20,16 +20,16 @@ int resultado_linha(char v[max][max]){
 				printf("aqui 1 i: %d\n", i);
 				
 				printf("simbolo na coordenada: %c\n", v[i][x]);
-				if(x+1 < max){
+//erro na condição, quando x recebia 2 ele sai pois a condição julga o proximo ou seja x = 3 por isso não entrava no if				
+				if(x+1 < max || x == 2){
 					printf("aqui 2 x: %d\n", x);
 					printf("aqui 2 i: %d\n", i);
 					prox = v[i][x+1]; 
 					printf("prox: int %d\n", prox);
 					printf("prox: char %c\n", prox);
-
-//if esta correto
+//if esta funcionando, porém quando chega no x=2 ele identiica como caracter o da coordenada 1,0
 					if((prox != a) && (prox != ' ')){
-						
+						printf("%c\n", prox);
 						printf("nao e a linha horizontal\n");
 						x = 4;
 						printf("aqui 3 x: %d\n", x);
