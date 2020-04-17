@@ -1,5 +1,7 @@
 #include<stdio.h>
 #define max 3
+//o programa não esta aceitando fim quando se completa uma liha com um unico caracter presente
+//ou seja nao a vencedores ele continua executando o codigo ate o fim
 int resultado_linha(char v[max][max]){
 	int i=0, x=0, prox = 0;
 	char a;
@@ -36,7 +38,7 @@ int resultado_linha(char v[max][max]){
 		}
 	}
 }
-
+//função velha esta correta não a erro
 int velha(char v[max][max]){
 	int i, j, x, jogador = 1, controle =0, resultado=0;
 	char ch;
