@@ -60,7 +60,7 @@ int resultado_linha(char v[max][max]){
 	}
 }
 
-resultado_coluna(char v[max][max]){
+int resultado_coluna(char v[max][max]){
 	int i=0, x=0, prox = 0;
 	char a;
 	for ( x = 0; x < max; x++){
@@ -153,7 +153,8 @@ int velha(char v[max][max]){
 			}	
 		}
 		resultado = resultado_linha(v);
-		if (resultado == 1){
+		resultado1 = resultado_coluna(v);
+		if ((resultado == 1) && (resultado1 == 1)){
 			printf("fim de jogo, vencedor jogador %d\n", jogador);
 			return 0;
 		}
