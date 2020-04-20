@@ -98,7 +98,7 @@ resultado_coluna(char v[max][max]){
 							printf("aqui 3 x: %d\n", i);
 							//return 1;
 					}else{
-
+						printf("aqui 5\n");
 					}
 					//printf("aqui 6 prox char2 %c\n", prox);
 				}
