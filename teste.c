@@ -116,8 +116,10 @@ int velha(char v[max][max]){
 		if ((resultado_linha == 1 )||(resultado_diagonal == 1)||(resultado_coluna == 1)){
 			printf("fim de jogo, vencedor jogador %d\n", jogador);
 			return 0;
+		}else if (j == 8){
+			printf("ninguem ganho, deu velha\n");
 		}
-
+		printf("%d\n", j);	
 		if(jogador == 1){	
 			jogador = 2;
 		}
