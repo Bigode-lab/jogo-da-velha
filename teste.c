@@ -9,42 +9,54 @@ int resultado_linha(char v[max][max]){
 	for ( i = 0; i < max; i++){
 
 		a = v[i][0];
-		printf("aqui 0 x: %d\n", x);
-		printf("aqui 0,5 i:%d\n", i);
+		//printf("aqui 0 x: %d\n", x);
+		//printf("aqui 0 i:%d\n", i);
 		if(a == ' '){
 			return 0;
 		}else{
 
 			for (x = 0; x < max; x++){
-				printf("aqui 1 x: %d\n", x);
-				printf("aqui 1 i: %d\n", i);
+				//printf("aqui 1 x: %d\n", x);
+				//printf("aqui 1 i: %d\n", i);
 				
-				printf("simbolo na coordenada: %c\n", v[i][x]);
-//erro na condição, quando x recebia 2 ele sai pois a condição julga o proximo ou seja x = 3 por isso não entrava no if				
-				if(x+1 < max || x == 2){
-					printf("aqui 2 x: %d\n", x);
-					printf("aqui 2 i: %d\n", i);
-					prox = v[i][x+1]; 
-					printf("prox: int %d\n", prox);
-					printf("prox: char %c\n", prox);
-//if esta funcionando, porém quando chega no x=2 ele identiica como caracter o da coordenada 1,0
-					if((prox != a) && (prox != ' ')){
-						printf("%c\n", prox);
-						printf("nao e a linha horizontal\n");
-						x = 4;
-						printf("aqui 3 x: %d\n", x);
-
-					}else if((x == 2) && (v[i][x] != ' ')){
-						printf("aqui 4 x: %d\n", x);
+				//printf("simbolo na coordenada: %c\n", v[i][x]);
+//erro na condição resolvido, quando x recebia 2 ele sai pois a condição julga o proximo ou seja x = 3 por isso não entrava no if
+				if(x+1 <= max /*|| x == 2*/){
+					//printf("aqui 2 x: %d\n", x);
+					//printf("aqui 2 i: %d\n", i);
+					prox = v[i][x+1];
+					//printf("prox: char %c\n", prox);
+					if ((x == 2) && (v[i][1] != ' ')){
+						prox = v[i][x];
+						//printf("prox char1 %c\n", prox);
+						if(prox == a){
+						//printf("aqui 4 x: %d\n", x);
+//retun temporario 
 						return 1;
-					}else{
+					}
+						//printf("coordenada %c\n", v[i][x]);
+					}
+//if esta funcionando, porém quando chega no x=2 ele identiica como caracter o da coordenada 1,0
+					else if((prox != a) && (prox != ' ')){
+							printf("%c\n", prox);
+							printf("nao e a linha horizontal\n");
+							x = 4;
+							printf("aqui 3 x: %d\n", x);
+							//return 1;
+//erro ta na condição do else if, else if não esta chegando a ser avaliado 
+					}//else if((x == 2) && (prox == a)){
+						//printf("aqui 4 x: %d\n", x);
+//retun temporario 
+						//return 1;
+					//}
+					else{
 						printf("aqui 5\n");
 // nao pode haver returni aqui pois se nao nao e executado todas as somas do x;
 					}
+					//printf("aqui 6 prox char2 %c\n", prox);
 				}
 			}
 		}
-	printf("aqui 5 x:%d i:%d\n", x);
 	}
 }
 //função velha esta correta, não a erro
@@ -93,7 +105,6 @@ int velha(char v[max][max]){
 				printf("\n----------\n");
 			}	
 		}
-		printf("x:%d, i:%d\n", x,i);
 		resultado = resultado_linha(v);
 		if (resultado == 1){
 			printf("fim de jogo, vencedor jogador %d\n", jogador);
