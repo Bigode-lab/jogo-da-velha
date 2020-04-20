@@ -59,6 +59,53 @@ int resultado_linha(char v[max][max]){
 		}
 	}
 }
+
+resultado_coluna(char v[max][max]){
+	int i=0, x=0, prox = 0;
+	char a;
+	for ( x = 0; x < max; x++){
+
+		a = v[0][x];
+		printf("aqui 0 x: %d\n", x);
+		printf("aqui 0 i:%d\n", i);
+		if(a == ' '){
+			return 0;
+		}else{
+
+			for (i = 0; i < max; i++){
+				printf("aqui 1 x: %d\n", x);
+				printf("aqui 1 i: %d\n", i);
+				
+				printf("simbolo na coordenada: %c\n", v[i][x]);
+				if(i+1 <= max /*|| x == 2*/){
+					printf("aqui 2 x: %d\n", x);
+					printf("aqui 2 i: %d\n", i);
+					prox = v[i+1][x];
+					//printf("prox: char %c\n", prox);
+					if ((i == 2) && (v[1][x] != ' ')){
+						prox = v[i][x];
+						printf("prox char1 %c\n", prox);
+						if(prox == a){
+						printf("aqui 4 x: %d\n", x);
+						return 1;
+					}
+						printf("coordenada %c\n", v[i][x]);
+					}
+					else if((prox != a) && (prox != ' ')){
+							printf("%c\n", prox);
+							printf("nao e a coluna vertical %d\n", i);
+							i = 4;
+							printf("aqui 3 x: %d\n", i);
+							//return 1;
+					}else{
+
+					}
+					//printf("aqui 6 prox char2 %c\n", prox);
+				}
+			}
+		}
+	}
+}
 //função velha esta correta, não a erro
 int velha(char v[max][max]){
 	int i, j, x, jogador = 1, controle =0, resultado=0;
